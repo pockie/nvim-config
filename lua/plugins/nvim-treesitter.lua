@@ -4,10 +4,11 @@ vim.pack.add({
 
 require("nvim-treesitter.configs").setup({
   ensure_installed = {
-    'lua'
+    'lua',
+    'php',
   },
   auto_install = false,
-  hightlight = {
+  highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },

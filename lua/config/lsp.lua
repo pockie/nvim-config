@@ -1,10 +1,11 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls" },
+  ensure_installed = { "lua_ls", "phpactor" },
   automatic_enable = false,
 })
 
 vim.lsp.enable("lua_ls")
+vim.lsp.enable("phpactor")
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
