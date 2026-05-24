@@ -1,10 +1,12 @@
-require('config.globals')
-require('config.options')
-require('config.keymap')
-require('config.autocmd')
 require('plugins.mason')
-require('config.lsp')
-require('plugins.tokyonight')
 require('plugins.nvim-treesitter')
+require('plugins.telescope')
+require('plugins.tokyonight')
+
+require('config.autocmd')
+require('config.options')
+require('config.globals')
+require('config.lsp')
+require('config.keymap')
 
 -- vim.pack.update();
