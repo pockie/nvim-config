@@ -18,10 +18,15 @@ A clean, native Neovim configuration using `vim.pack` (built-in package manager,
 │   │   └── lsp.lua           # LSP setup (Mason + vim.lsp.enable)
 │   └── plugins/
 │       ├── mason.lua         # Plugin declaration: Mason + LSP
-│       ├── tokyonight.lua    # Plugin declaration: Colorscheme
-│       └── nvim-treesitter.lua # Plugin declaration: Treesitter
+│       ├── nvim-treesitter.lua # Plugin declaration: Treesitter
+│       ├── telescope.lua     # Plugin declaration: Telescope
+│       ├── which-key.lua     # Plugin declaration: Which-key
+│       ├── mini-icons.lua    # Plugin declaration: Icons
+│       ├── oil.lua           # Plugin declaration: Oil file explorer
+│       └── tokyonight.lua    # Plugin declaration: Colorscheme
 └── lsp/
-    └── lua_ls.lua            # Lua LSP configuration
+    ├── lua_ls.lua            # Lua LSP configuration
+    └── phpactor.lua          # PHP LSP configuration
 ```
 
 ## Plugins
@@ -33,6 +38,12 @@ A clean, native Neovim configuration using `vim.pack` (built-in package manager,
 | [mason.nvim](https://github.com/williamboman/mason.nvim) | Manages LSP server binaries |
 | [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | Bridge between Mason and Neovim's native `vim.lsp` |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Predefined LSP server configurations |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder |
+| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Lua utility library (dependency for Telescope) |
+| [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim) | FZF sorter for Telescope |
+| [which-key.nvim](https://github.com/folke/which-key.nvim) | Keybinding popup |
+| [mini.icons](https://github.com/echasnovski/mini.icons) | Icon provider for file explorers and UI |
+| [oil.nvim](https://github.com/stevearc/oil.nvim) | File explorer (edit filesystem as a buffer) |
 
 ## LSP Servers
 
@@ -41,6 +52,13 @@ The LSP configuration uses **Neovim's native LSP API** (`vim.lsp.config` / `vim.
 ### Installation
 
 LSP servers are automatically installed by **Mason** (controlled via `ensure_installed` in `lua/config/lsp.lua`).
+
+### Current LSP Servers
+
+| Server | Language | Config file |
+|---|---|---|
+| `lua_ls` | Lua | `lsp/lua_ls.lua` |
+| `phpactor` | PHP | `lsp/phpactor.lua` |
 
 ### Configuration
 
