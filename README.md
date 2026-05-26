@@ -2,6 +2,11 @@
 
 A clean, native Neovim configuration using `vim.pack` (built-in package manager, Neovim ≥ 0.12).
 
+## Requirements
+
+- **Neovim ≥ 0.12** (for `vim.pack`)
+- **[Nerd Font](https://www.nerdfonts.com/)** — required for file icons in Oil and other UI elements (e.g. JetBrains Mono Nerd Font, FiraCode Nerd Font). Must be set as the font in your terminal emulator.
+
 ## Directory Structure
 
 ```
