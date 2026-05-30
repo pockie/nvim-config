@@ -17,3 +17,14 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- DAP
+vim.keymap.set("n", "<F5>", function() require("dap").continue() end, { desc = "DAP continue" })
+vim.keymap.set("n", "<F8>", function() require("dap").step_over() end, { desc = "DAP step over" })
+vim.keymap.set("n", "<F7>", function() require("dap").step_into() end, { desc = "DAP step into" })
+vim.keymap.set("n", "<S-F8>", function() require("dap").step_out() end, { desc = "DAP step out" })
+vim.keymap.set("n", "<Leader>db", function() require("dap").toggle_breakpoint() end, { desc = "Toggle [b]reakpoint" })
+vim.keymap.set("n", "<Leader>dB", function() require("dap").set_breakpoint() end, { desc = "[B]reakpoint (conditional)" })
+vim.keymap.set("n", "<Leader>dc", function() require("dap").run_to_cursor() end, { desc = "Run to [c]ursor" })
+vim.keymap.set("n", "<Leader>dq", function() require("dap").disconnect() end, { desc = "Disconnect debugger" })
+vim.keymap.set("n", "<Leader>dQ", function() require("dap").close() end, { desc = "Close debug adapter" })

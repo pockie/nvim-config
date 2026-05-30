@@ -20,9 +20,11 @@ A clean, native Neovim configuration using `vim.pack` (built-in package manager,
 │   │   ├── options.lua       # Neovim options
 │   │   ├── keymap.lua        # Custom keymaps
 │   │   ├── autocmd.lua       # Custom autocommands
-│   │   └── lsp.lua           # LSP setup (Mason + vim.lsp.enable)
+│   │   ├── lsp.lua           # LSP setup (Mason + vim.lsp.enable)
+│   │   └── dap.lua           # DAP setup (nvim-dap + php-debug-adapter)
 │   └── plugins/
 │       ├── mason.lua         # Plugin declaration: Mason + LSP
+│       ├── dap.lua           # Plugin declaration: nvim-dap + nvim-dap-ui + mason-nvim-dap
 │       ├── nvim-treesitter.lua # Plugin declaration: Treesitter
 │       ├── telescope.lua     # Plugin declaration: Telescope
 │       ├── which-key.lua     # Plugin declaration: Which-key
@@ -49,6 +51,10 @@ A clean, native Neovim configuration using `vim.pack` (built-in package manager,
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Keybinding popup |
 | [mini.icons](https://github.com/echasnovski/mini.icons) | Icon provider for file explorers and UI |
 | [oil.nvim](https://github.com/stevearc/oil.nvim) | File explorer (edit filesystem as a buffer) |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap) | Debug Adapter Protocol client |
+| [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | UI for nvim-dap (breakpoints, stack trace, watches) |
+| [nvim-nio](https://github.com/nvim-neotest/nvim-nio) | Async IO library for Neovim (dependency for nvim-dap-ui) |
+| [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Bridge between Mason and nvim-dap |
 
 ## LSP Servers
 
@@ -91,6 +97,45 @@ return {
 -- ensure_installed = { "lua_ls", "rust_analyzer" }
 -- vim.lsp.enable("rust_analyzer")
 ```
+
+## Debugging (PHP)
+
+Debugging uses **nvim-dap** with **Xdebug** for PHP.
+
+### Installation
+
+1. **Xdebug** (PHP-side): Install and configure Xdebug on your system:
+   ```bash
+   # Via pecl
+   pecl install xdebug
+   # Or via apt
+   sudo apt install php-xdebug
+   ```
+   Configure in `php.ini`:
+   ```ini
+   xdebug.mode=debug
+   xdebug.start_with_request=yes
+   xdebug.client_host=127.0.0.1
+   xdebug.client_port=9003
+   ```
+
+2. **php-debug-adapter** is automatically installed by Mason via `ensure_installed` in `lua/config/dap.lua`.
+
+### Usage
+
+| Key | Action |
+|---|---|
+| `<F5>` | Start/continue debugging |
+| `<F8>` | Step over |
+| `<F7>` | Step into |
+| `<S-F8>` | Step out |
+| `<Leader>db` | Toggle breakpoint |
+| `<Leader>dB` | Set conditional breakpoint |
+| `<Leader>dc` | Run to cursor |
+| `<Leader>dq` | Disconnect debugger |
+| `<Leader>dQ` | Close debug adapter |
+
+Start Xdebug (e.g. via browser/CLI with `XDEBUG_SESSION=1`), then press `<F5>` in Neovim to connect.
 
 ## Tree-sitter
 
