@@ -7,6 +7,7 @@ require("plugins.oil")
 require("plugins.tokyonight")
 require("plugins.dap")
 require("plugins.render-markdown")
+require("plugins.lualine")
 
 require("config.autocmd")
 require("config.options")
