@@ -37,7 +37,8 @@ A clean, native Neovim configuration using `vim.pack` (built-in package manager,
 │       └── tokyonight.lua    # Plugin declaration: Colorscheme
 └── lsp/
     ├── lua_ls.lua            # Lua LSP configuration
-    └── phpactor.lua          # PHP LSP configuration
+    ├── phpactor.lua          # PHP LSP configuration
+    └── rust_analyzer.lua     # Rust LSP configuration
 ```
 
 ## Plugins
