@@ -6,6 +6,7 @@ require("plugins.mini-icons")
 require("plugins.oil")
 require("plugins.tokyonight")
 require("plugins.dap")
+require("plugins.render-markdown")
 
 require("config.autocmd")
 require("config.options")
