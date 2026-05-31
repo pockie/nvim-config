@@ -30,8 +30,10 @@ A clean, native Neovim configuration using `vim.pack` (built-in package manager,
 │       ├── nvim-treesitter.lua # Plugin declaration: Treesitter
 │       ├── telescope.lua     # Plugin declaration: Telescope
 │       ├── which-key.lua     # Plugin declaration: Which-key
+│       ├── lualine.lua       # Plugin declaration: Statusline
 │       ├── mini-icons.lua    # Plugin declaration: Icons
 │       ├── oil.lua           # Plugin declaration: Oil file explorer
+│       ├── render-markdown.lua # Plugin declaration: Markdown preview
 │       └── tokyonight.lua    # Plugin declaration: Colorscheme
 └── lsp/
     ├── lua_ls.lua            # Lua LSP configuration
@@ -57,6 +59,8 @@ A clean, native Neovim configuration using `vim.pack` (built-in package manager,
 | [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) | UI for nvim-dap (breakpoints, stack trace, watches) |
 | [nvim-nio](https://github.com/nvim-neotest/nvim-nio) | Async IO library for Neovim (dependency for nvim-dap-ui) |
 | [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) | Bridge between Mason and nvim-dap |
+| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Statusline with Git branch, diagnostics, file info |
+| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | Inline Markdown rendering in buffers |
 
 ## LSP Servers
 
@@ -72,6 +76,7 @@ LSP servers are automatically installed by **Mason** (controlled via `ensure_ins
 |---|---|---|
 | `lua_ls` | Lua | `lsp/lua_ls.lua` |
 | `phpactor` | PHP | `lsp/phpactor.lua` |
+| `rust_analyzer` | Rust | `lsp/rust_analyzer.lua` |
 
 ### Configuration
 
